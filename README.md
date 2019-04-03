@@ -1,7 +1,7 @@
-# Native Runner
+ # Native Runner
 
 
-Currently jobs/scripts/processes are distributed to many servers and are deployed via the crontab of each server.
+Scenerio : Currently jobs/scripts/processes are distributed to many servers and are deployed via the crontab of each server.
 
 ####This creates the following problems, all of which the Native-Runner system is attempting to solve:
 - There is no overall, clear schedule of job executions to be viewed and monitored from a single point.
@@ -18,11 +18,11 @@ The 'native-runner-client' application receives the command from the Admin, runs
 
 
 
-###Communication
+***Communication***
 Communication to/from all components is done via REST calls.
 
 
 
-###Fail-over 
+***Fail-over ***
 Any Process marked with priority CRITICAL will be retried if failed for any reason. Max retries are set to 3. 
 
