@@ -3,7 +3,8 @@
 
 Scenerio : Currently jobs/scripts/processes are distributed to many servers and are deployed via the crontab of each server.
 
-####This creates the following problems, all of which the Native-Runner system is attempting to solve:
+**This creates the following problems, all of which the Native-Runner system is attempting to solve:
+
 - There is no overall, clear schedule of job executions to be viewed and monitored from a single point.
 - If one the servers is down, there needs to be manual triggering/scheduling of the jobs on a different machine (when and if the failing machine is discovered as down). Otherwise the jobs on the failed server might not run at all.
 - There is no cohesive history about job executions and their results
@@ -18,11 +19,11 @@ The 'native-runner-client' application receives the command from the Admin, runs
 
 
 
-***Communication***
+##***Communication***
 Communication to/from all components is done via REST calls.
 
 
 
-***Fail-over ***
+##***Fail-over ***
 Any Process marked with priority CRITICAL will be retried if failed for any reason. Max retries are set to 3. 
 
