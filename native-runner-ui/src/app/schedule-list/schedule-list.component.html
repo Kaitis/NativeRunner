@@ -1,0 +1,11 @@
+
+  <div class="container content main-body bg-primary text-white">
+    <div class="row text-center">
+      <div class="col-md-5 text-left">Process
+      </div>
+      <div class="col-md-4">Next Run
+      </div>
+    </div>
+    <app-schedule *ngFor="let schedule of scheduledTasks" [schedule]="schedule" (removePressed)="removeFromSchedule($event)"></app-schedule>
+  </div>
+

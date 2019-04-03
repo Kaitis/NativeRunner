@@ -1,0 +1,45 @@
+spring:
+  security:
+      user:
+        name: "user"
+        password: "password"
+  h2:
+    console:
+      enabled: false
+  datasource:
+    url: jdbc:h2:~/test;AUTO_SERVER=TRUE;mode=ORACLE
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+
+# mail
+  mail:
+    host: smtp.example.com
+    username:
+    password:
+  boot:
+    admin:
+      # Security
+#      client:
+#        username: "user"       #These two are needed so that the client
+#        password: "password"   #can register at the protected server api
+#        instance:
+#          metadata:
+#            user.name: "user"         #These two are needed so that the server
+#            user.password: "password" #can access the protected client endpoints
+      notify:
+        mail:
+          from: processLauncherAdmin@example.com
+          to: admin@example.com
+          cc: cc@example:com
+          # notification configuration
+          enabled: true
+          #Comma-delimited list of status changes to be ignored: Format: "<from-status>:<to-status>": Wildcards allowed:
+          ignore-changes: "UNKNOWN:UP"
+      ui:
+        brand: <img src="assets/img/icon-spring-boot-admin:svg"><span>Process Launcher Admin</span>
+

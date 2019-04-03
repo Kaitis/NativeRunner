@@ -1,0 +1,26 @@
+<div class="row text-center border bg-white text-dark">
+  <div class="col-md-3 align-middle"><a routerLink="/detail/{{chain.id}}/1">{{chain.name}}</a>
+  </div>
+  <!--<div class="col-md-1 align-middle ">{{chain.node}}-->
+  <!--</div>-->
+  <div class="col-md-2 align-middle">{{chain.lastExecutionDate | date: 'dd/MM/yyyy HH:mm:ss'}} <p> @ {{chain.lastExecutionUrl}}</p>
+  </div>
+  <div class="col-md-2 align-middle">{{chain.cron}}
+  </div>
+  <div class="col-md-2 align-middle ">
+    <span
+      [ngClass]="
+      {'badge badge-pill badge-success' : chain.status === 'COMPLETED',
+       'badge badge-pill badge-primary' : chain.status === 'RUNNING',
+       'badge badge-pill badge-warning' : chain.status === 'STOPPED',
+       'badge badge-pill badge-danger'  : chain.status === 'FAILED'}">{{chain.status}}</span>
+  </div>
+  <div class="col-md-3 align-middle">
+    <button class="btn btn-sm btn-success" (click)="startProcessGroup(chain.id)" [disabled]="chain.status === 'RUNNING'"><span class="fa fa-play"></span></button>
+    <button class="btn btn-sm btn-secondary" (click)="stopProcessGroup(chain.id)" [disabled]="chain.status === 'STOPPED'"><span class="fa fa-stop"></span></button>
+    <!--<button class="btn btn-sm btn-primary" routerLink="/detail/{{chain.id}}/1"><span class="fa fa-info"></span></button>-->
+    <button class="btn btn-sm btn-primary" routerLink="/chain/{{chain.id}}"><span class="fa fa-pencil"></span></button>
+    <button class="btn btn-sm btn-danger" (click)="deleteGroup(chain.id)"><span class="fa fa-remove"></span></button>
+  </div>
+</div>
+

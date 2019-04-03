@@ -1,0 +1,70 @@
+<div class="container content main-body text-center bg-white w-50">
+  <h2 class="text-dark text-left" style="padding-top:15px; ">Chain Details</h2>
+  <form name="text-properties-form"  class="form-horizontal text-center">
+    <hr/>
+    <div class="form-group form-group-sm col-sm-12 text-center">
+      <div class="row">
+        <div class="col-12">
+          <input type="text" class="form-control" id="name" placeholder="enter chain name" [(ngModel)]="chain.name"
+                 name="name" >
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-group-sm col-sm-12">
+      <div class="row">
+        <label for="cron" class="col-sm-3 col-form-label">Schedule</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="cron" placeholder="enter cron expression" [(ngModel)]="chain.cron" name="cron" >
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-group-sm col-sm-12">
+      <div class="row">
+        <label for="priority" class="col-sm-3 col-form-label">Priority</label>
+        <div class="col-sm-9 styled-select slate">
+          <select class="dropdown text-center input-group-lg"  [(ngModel)]="chain.priority" name="priority" id="priority">
+            <option class="text-center" [value]="0"
+                    [attr.selected]="chain.priority === chain.priority[0] ? true : null">NORMAL</option>
+            <option class="text-center" [value]="1"
+                    [attr.selected]="chain.priority === chain.priority[1]  ? true : null">CRITICAL</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-group-sm col-sm-12">
+      <div class="row">
+        <label for="hasFixedUrl" class="col-sm-3 col-form-label">At fixed URL?</label>
+        <div class="col-sm-9">
+          <input type="checkbox" class="form-control" id="hasFixedUrl" name="hasFixedUrl" [checked]="hasFixedUrl" (change)="toggleFixedURL()" >
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-group-sm col-sm-12" *ngIf="hasFixedUrl">
+      <div class="row">
+        <label for="fixedURL" class="col-sm-3 col-form-label">Fixed URL</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="fixedURL" placeholder="enter url" [(ngModel)]="chain.fixedURL" name="fixedURL">
+        </div>
+      </div>
+    </div>
+    <hr/>
+    <div class="form-group form-group-sm col-sm-12" *ngFor="let step of steps;  let i = index">
+      <div class="row">
+        <div class="col-11 styled-select slate" >
+          <select class="dropdown text-center input-group-lg" (change)="onOptionChange(i,$event)" ([ngModel])="chain.processes[i].name">
+            <option class="text-center"
+                    *ngFor="let p of processes; let j = index" [value]="j"
+                    [attr.selected]="chain.processes[i].processTO.name==p.name ? true : null">{{p.name}}</option>
+          </select>
+          <span class="fa fa-lg fa-arrow-down text-secondary text-center"></span>
+        </div>
+        <a (click)="newStep()"><span class="fa fa-lg align-middle fa-plus-circle text-lg-right text-success m-1"></span></a>
+        <a *ngIf="i !== 0" (click)="deleteStep(i)"><span class="fa fa-lg align-middle fa-trash text-lg-right text-danger"></span></a>
+      </div>
+    </div>
+    <hr/>
+    <div class="form- text-center" style="padding: 3%">
+      <button type="button" class="btn btn-primary col-3 offset-4" (click)="save()">Save</button>
+    </div>
+  </form>
+</div>

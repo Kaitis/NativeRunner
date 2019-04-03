@@ -1,0 +1,21 @@
+.template-row {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  width: 60%;
+  min-height: 80px;
+  border:1px solid #cecece;
+}
+
+p{
+  font-size: 150%;
+}
+
+.styled-select.slate select {
+  border: 1px solid #ccc;
+  font-size: 16px;
+  height: 34px;
+  width: 100%;
+}

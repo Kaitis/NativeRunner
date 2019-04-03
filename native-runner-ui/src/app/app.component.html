@@ -1,0 +1,29 @@
+<div class="page " >
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand pull-left text-white">Process Launcher</a>
+    <div class="collapse navbar-collapse " id="navbarCollapse">
+      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+        <li class="nav-item pull-right" ><a class="nav-link" routerLink="/processes">Processes</a></li>
+        <li class="nav-item pull-right" ><a class="nav-link" routerLink="/chains">Chains</a></li>
+        <li class="nav-item pull-right" ><a class="nav-link" routerLink="/history">History</a></li>
+        <li class="nav-item pull-right" ><a class="nav-link" routerLink="/schedule">Schedule</a></li>
+        <!--<li class="nav-item pull-right" ><a class="nav-link" routerLink="/monitor">Monitor</a></li>-->
+      </ul>
+      <!--<form class="form-inline mt-2 mt-md-0">-->
+      <!--<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">-->
+      <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+      <!--</form>-->
+      <div class="pull-right">
+        <button class="btn btn-info text-white" routerLink="/new"><span class="fa fa-plus"></span> New Process</button>
+        <button class="btn btn-info text-white" routerLink="/chain/-1"><span class="fa fa-plus"></span> New Chain</button>
+      </div>
+    </div>
+
+  </nav>
+
+  <br class="clearfix"/>
+  <br class="clearfix"/>
+  <router-outlet></router-outlet>
+</div>
+
+

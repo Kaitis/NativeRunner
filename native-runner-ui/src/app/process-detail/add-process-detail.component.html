@@ -1,0 +1,49 @@
+<div class="container content main-body ">
+  <div class="row text-left bg-primary text-white">
+    <div class="col-9">
+      <h1>Process: {{process.name}}
+      </h1>
+      <h1>Priority: {{process.priority}}
+      </h1>
+      <hr/>
+      <h3>Last Execution: {{process.lastExecutionDate | date: 'dd/MM/yyyy HH:mm:ss' }} @ <span class="p">{{process.lastExecutionUrl}}</span>
+      </h3>
+      <h3>Schedule: {{process.cron}}
+      </h3>
+    </div>
+    <div class="col-3 align-middle text-right">
+      <button class="btn btn-sm btn-success" (click)="startProcess(process.id)" [disabled]="process.status === 'RUNNING'"><span class="fa fa-play"></span></button>
+      <button class="btn btn-sm btn-secondary" (click)="stopProcess(process.id)" [disabled]="process.status === 'STOPPED'"><span class="fa fa-stop"></span></button>
+      <button class="btn btn-sm btn-danger" (click)="deleteProcess(process.id)"><span class="fa fa-trash"></span></button>
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class="container content bg-secondary text-white align-middle">
+    <div class="row text-center align-middle">
+      <div class="col-md-4">Start Time
+      </div>
+      <div class="col-md-4">Stop Time
+      </div>
+      <div class="col-md-4">Result
+      </div>
+    </div>
+
+    <div *ngFor="let processHist of process.history" class="row text-center border bg-white text-dark align-middle">
+      <div class="col-4  ">{{processHist.startTime | date: 'dd/MM/yyyy hh:mm:ss' }}
+      </div>
+      <div class="col-4 ">{{processHist.stopTime | date: 'dd/MM/yyyy hh:mm:ss' }}
+      </div>
+      <div class="col-4  ">
+      <span
+        [ngClass]="
+        {'badge badge-info'    : processHist.result === 'COMPLETED',
+         'badge badge-success' : processHist.result === 'RUNNING',
+         'badge badge-warning' : processHist.result === 'STOPPED',
+         'badge badge-danger'  : processHist.result === 'FAILED'}">{{processHist.result}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+

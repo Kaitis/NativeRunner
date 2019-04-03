@@ -1,0 +1,32 @@
+<!--<div class="container text-dark">-->
+  <!--<div class="row" style="margin-top: 10px">-->
+    <!--<h1 class="col-6">Processes</h1>-->
+    <!--<div class="col-6">-->
+      <!--<nav class="nav nav-pills pull-right">-->
+        <!--&lt;!&ndash;<li class="nav-item">&ndash;&gt;-->
+        <!--<button *ngFor="let node of nodes; let i = index" (click)="changeCurrentNode(i)"-->
+            <!--[ngClass]="{-->
+            <!--'btn btn-primary nav-item nav-link active '   : node.name === currentNode.name,-->
+            <!--'btn btn-secondary nav-item nav-link' : node.name !== currentNode.name }">{{node.name}}</button>-->
+      <!--</nav>-->
+    <!--</div>-->
+  <!--</div>-->
+  <div class="container content main-body bg-primary text-white">
+
+    <div class="row text-center">
+      <div class="col-md-3">Process
+      </div>
+      <div class="col-md-2">Last Execution
+      </div>
+      <div class="col-md-2">Schedule
+      </div>
+      <div class="col-md-2">Status
+      </div>
+      <div class="col-md-3">Actions
+      </div>
+    </div>
+    <app-add-process *ngFor="let process of processes"
+                     [process]="process"
+                     (deleteEvent)="removedProcess($event)"></app-add-process>
+  </div>
+<!--</div>-->

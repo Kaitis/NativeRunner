@@ -1,0 +1,26 @@
+<div class="row text-center border bg-white text-dark">
+  <div class="col-md-3 align-middle"><a routerLink="/detail/{{process.id}}/0">{{process.name}}</a>
+  </div>
+  <!--<div class="col-md-1 align-middle">{{process.node}}-->
+  <!--</div>-->
+  <div class="col-md-2 align-middle">{{process.lastExecutionDate | date: 'dd/MM/yyyy HH:mm:ss'}} <p>@ {{process.lastExecutionUrl}}</p>
+  </div>
+  <div class="col-md-2 align-middle">{{process.cron == null ? 'CHAINED' : process.cron}}
+  </div>
+  <div class="col-md-2 align-middle ">
+    <span
+      [ngClass]="
+      {'badge badge-pill badge-success' : process.status === 'COMPLETED',
+       'badge badge-pill badge-primary' : process.status === 'RUNNING',
+       'badge badge-pill badge-warning' : process.status === 'STOPPED',
+       'badge badge-pill badge-danger'  : process.status === 'FAILED'}">{{process.status}}</span>
+  </div>
+  <div class="col-md-3 align-middle">
+    <button class="btn btn-sm btn-success"  (click)="startProcess(process.id)" [disabled]="process.status === 'RUNNING'" [hidden]="shouldHideBtn"><span class="fa fa-play"></span></button>
+    <button class="btn btn-sm btn-secondary" (click)="stopProcess(process.id)" [disabled]="process.status === 'STOPPED'" [hidden]="shouldHideBtn"><span class="fa fa-stop"></span></button>
+    <!--<button class="btn btn-sm btn-primary" routerLink="/detail/{{process.id}}"><span class="fa fa-info"></span></button>-->
+    <button class="btn btn-sm btn-primary" routerLink="/edit/{{process.id}}"><span class="fa fa-pencil"></span></button>
+    <button class="btn btn-sm btn-danger" (click)="delete(process.id)"><span class="fa fa-remove"></span></button>
+  </div>
+</div>
+

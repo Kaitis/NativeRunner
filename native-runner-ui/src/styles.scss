@@ -1,0 +1,124 @@
+/* You can add global styles to this file, and also import other style files */
+$primary: orange;
+
+$theme-colors: (
+  "primary": #3269bd,
+  "secondary": #999ea2,
+  "info": #e49200
+);
+
+@import "~bootstrap/scss/bootstrap";
+@import "~font-awesome/css/font-awesome.css";
+
+
+.row{
+  min-height: 60px;
+  padding-top: 10px;
+}
+
+.btn{
+  margin-left: 10px;
+  min-width: 30px;
+}
+
+/* You can add global styles to this file, and also import other style files */
+.sm {
+  font-size: 10px;
+}
+
+.md {
+  font-size: 14px;
+}
+
+.lg {
+  font-size: 18px;
+}
+
+.table>tbody>tr>td {
+  vertical-align: middle;
+}
+
+html, body {
+  height: 100%;
+}
+
+pre {
+  position: absolute;
+  width: 100%;
+  min-height: 30cm;
+  margin-top: 5%;
+}
+
+.main-body {
+  height: 100%;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.main-title {
+  width: 100%;
+  height: 10%;
+  margin-bottom: 0;
+}
+
+.full-height {
+  height:35cm;
+}
+
+.half-height {
+  height:40%;
+}
+
+.tooltip.show{opacity: 0.9}
+
+.scrollable {
+  height:50%;
+  overflow-y: scroll;
+  margin:auto ;
+}
+
+
+body {
+  background: rgb(204,204,204);
+}
+
+
+.designSection.band{
+  height: inherit;
+}
+
+.pageHeader {
+  width: 100%;
+  height: 3cm;
+}
+
+.pageBody {
+  height: 25.1cm;
+}
+
+.pageFooter {
+  height: 1.6cm;
+}
+
+
+p{
+  margin-bottom: 0px;
+}
+
+.navbar{
+  margin-bottom: 10px;
+}
+
+.badge-info,
+.badge-warning,
+.badge-danger,
+.badge-success{
+  padding: 3%;
+}
+
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1250px;
+  }
+}

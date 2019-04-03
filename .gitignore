@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+/process-launcher-ui.iml
+/node_modules/
+/dist/
+**/.idea/**
+/target/
